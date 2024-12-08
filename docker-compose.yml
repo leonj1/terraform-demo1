@@ -20,3 +20,5 @@ services:
       context: ./website
       dockerfile: Dockerfile
     image: react-hello-world:latest
+    ports:
+      - "3900:80"    # Map container port 80 to host port 3900

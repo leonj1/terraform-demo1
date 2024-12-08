@@ -35,5 +35,9 @@ tf-apply:
 	@echo "Applying Terraform changes..."
 	terraform apply -auto-approve
 
+tf-destroy:
+	@echo "Destroying Terraform..."
+	terraform destroy
+
 # Build everything and start services
 build: docker-build localstack-start
