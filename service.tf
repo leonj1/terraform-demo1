@@ -1,6 +1,6 @@
-resource "aws_security_group" "nginx_service" {
-  name        = "nginx-service-sg"
-  description = "Security group for nginx ECS service"
+resource "aws_security_group" "react_service" {
+  name        = "react-service-sg"
+  description = "Security group for React ECS service"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -18,16 +18,16 @@ resource "aws_security_group" "nginx_service" {
   }
 }
 
-resource "aws_ecs_service" "nginx" {
-  name            = "nginx-service"
+resource "aws_ecs_service" "react_app" {
+  name            = "react-service"
   cluster         = aws_ecs_cluster.main.id
-  task_definition = aws_ecs_task_definition.nginx.arn
+  task_definition = aws_ecs_task_definition.react_app.arn
   desired_count   = 1
   launch_type     = "FARGATE"
 
   network_configuration {
     subnets          = aws_subnet.public[*].id
-    security_groups  = [aws_security_group.nginx_service.id]
+    security_groups  = [aws_security_group.react_service.id]
     assign_public_ip = true
   }
 }

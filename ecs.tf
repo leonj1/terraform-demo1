@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "main" {
-  name = "nginx-cluster"
+  name = "react-cluster"
 }
 
 resource "aws_iam_role" "ecs_task_execution_role" {
@@ -24,8 +24,8 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_ecs_task_definition" "nginx" {
-  family                   = "nginx"
+resource "aws_ecs_task_definition" "react_app" {
+  family                   = "react-app"
   network_mode            = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                     = 256
@@ -34,8 +34,8 @@ resource "aws_ecs_task_definition" "nginx" {
 
   container_definitions = jsonencode([
     {
-      name      = "nginx"
-      image     = "nginx:latest"
+      name      = "react-app"
+      image     = "react-hello-world:latest"
       essential = true
       portMappings = [
         {
