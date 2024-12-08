@@ -1,7 +1,7 @@
 .PHONY: build clean docker-build docker-clean localstack-start localstack-stop tf-init tf-plan tf-apply
 
 # Variables
-DOCKER_IMAGE_NAME = react-hello-world
+DOCKER_IMAGE_NAME = tf-react-hello-world
 DOCKER_IMAGE_TAG = latest
 DOCKER_FULL_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)
 
