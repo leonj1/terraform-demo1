@@ -6,12 +6,12 @@ DOCKER_IMAGE_TAG = latest
 DOCKER_FULL_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)
 
 # Build the React application Docker image
-build:
+docker-build:
 	@echo "Building React application Docker image..."
 	cd website && docker build -t $(DOCKER_FULL_IMAGE) .
 
 # Start Localstack and build services
-localstack-start:
+localstack-start: localstack-stop
 	@echo "Starting Localstack and services..."
 	docker-compose up -d
 
