@@ -82,12 +82,12 @@ The project uses Localstack Pro to emulate AWS services locally. The following s
 
 ## Cleanup
 
-To stop all services:
-```bash
-make localstack-stop
-```
-
 To destroy the infrastructure:
 ```bash
 terraform destroy
+```
+
+To stop all services:
+```bash
+make localstack-stop
 ```
