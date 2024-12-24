@@ -3,3 +3,4 @@
 license.json
 terraform.tfstate
 terraform.tfstate.backup
+volume/
