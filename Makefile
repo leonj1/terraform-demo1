@@ -20,24 +20,20 @@ localstack-stop:
 	@echo "Stopping Localstack and services..."
 	docker-compose down
 
-# Initialize Terraform
 tf-init:
 	@echo "Initializing Terraform..."
 	terraform init
 
-# Plan Terraform changes
-tf-plan:
+plan: tf-init
 	@echo "Planning Terraform changes..."
 	terraform plan
 
-# Apply Terraform changes
-tf-apply:
+apply:
 	@echo "Applying Terraform changes..."
 	terraform apply -auto-approve
 
-tf-destroy:
+destroy:
 	@echo "Destroying Terraform..."
 	terraform destroy
 
-# Build everything and start services
 build: docker-build localstack-start
